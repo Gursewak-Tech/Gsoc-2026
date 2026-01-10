@@ -11,23 +11,26 @@ void factorial(int n){   // give factorial of a number
     cout<<" = " <<fact;
 }
 void  prime(int n){    // check numcer if it is prime or not.
-    bool t=false;
-    for(int i=2; i<n ;i++){
-        if(n%i==0){
-            t=true;
-        }
-        else{
-            t=false;
-        }
-        
+ if(n<=1){
+    cout<<"not a prime number";
+    return;
+ }
+
+ bool isprime= true;
+ for(int i=2;i*i<n; i++){
+    if(n%i==0){
+        isprime=false;
+        break;
     }
-    if(t==true){
-        cout<<"prime number";
-    }
-    else{
-        cout<<"not prime number";
-    }
-    
+ }
+
+ if(isprime==false){
+    cout<<"not a prime number";
+ }
+ else{
+    cout<<"it's a prime number";
+ }  
+ 
 }
 void swap(int &a , int &b){ // by reference swap two numbers
     int hold=a;
@@ -41,9 +44,8 @@ void swap(int &a , int &b){ // by reference swap two numbers
 int main(){
     int n,m;
     cout<<"enter your numbers: ";
-    cin>>n>>m;
-    swap(n,m);
-    cout<<"a:"<<n<<endl<<"b:"<<m;
+    cin>>m;
+    prime(m);
     return 0;
 }
 
